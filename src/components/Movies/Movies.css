@@ -1,0 +1,17 @@
+.movies {
+    width: calc(100% - 70px * 2);
+    margin: 0 auto;
+    background-color: #202020;
+}
+
+@media screen and (max-width: 767px) {
+    .movies {
+        width: calc(100% - 30px * 2);
+    }
+}
+
+@media screen and (max-width: 319px) {
+    .movies {
+        width: calc(100% - 10px * 2);
+    }
+}

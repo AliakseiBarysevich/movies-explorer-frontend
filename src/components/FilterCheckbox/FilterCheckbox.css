@@ -1,0 +1,116 @@
+.filter-checkbox {
+    width: 226px;
+    height: 72px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 30px 0 29px;
+    background-color: #222222;
+}
+
+.filter-checkbox__switch {
+    margin: 0 14px 0 0;
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+}
+  
+/* Hide default HTML checkbox */
+.filter-checkbox__checkbox {
+    display:none;
+}
+  
+/* The slider */
+.filter-checkbox__slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #343434;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.filter-checkbox__slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    top: 2px;
+    background-color: #A0A0A0;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+input:checked + .filter-checkbox__slider {
+    background-color: #2BE080;
+}
+
+input:checked + .filter-checkbox__slider:before {
+    background-color: #FFF;
+}
+  
+input:focus + .filter-checkbox__slider {
+    box-shadow: 0 0 1px #2BE080;
+}
+  
+input:checked + .filter-checkbox__slider:before {
+    -webkit-transform: translateX(14px);
+    -ms-transform: translateX(14px);
+    transform: translateX(14px);
+}
+  
+/* Rounded sliders */
+.filter-checkbox__slider.round {
+    border-radius: 10px;
+}
+  
+.filter-checkbox__slider.round:before {
+    border-radius: 50%;
+}
+
+.filter-checkbox__name {
+    margin: 0;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: #FFFFFF;
+}
+
+@media screen and (max-width: 767px) {
+    .filter-checkbox {
+        width: 207px;
+        padding: 0 20px 0 19px;
+    }
+
+    .filter-checkbox__switch {
+        margin: 0 15px 0 0;
+    }
+}
+
+@media screen and (max-width: 639px) {
+    .filter-checkbox {
+        background-color: transparent;
+    }
+}
+
+@media screen and (max-width: 319px) {
+    .filter-checkbox {
+        width: 148px;
+        height: 100%;
+        padding: 0;
+    }
+
+    .filter-checkbox__switch {
+        margin: 0 13px 0 0;
+    }
+
+    .filter-checkbox__name {
+        font-size: 11px;
+    }
+}

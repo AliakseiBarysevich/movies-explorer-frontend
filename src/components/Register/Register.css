@@ -1,0 +1,116 @@
+.register {
+    width: 100%;
+    margin: 0 auto;
+    padding: 70px 0 70px;
+    background-color: #202020;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register__container {
+    width: 396px;
+    color: #fff;
+}
+
+.register__heading {
+    margin: 40px 0 40px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.register__form {
+    margin: 0;
+}
+
+.register__input-list {
+    margin: 0 0 69px;
+    padding: 0;
+    height: 266px;
+}
+
+.register__input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.register__input-label {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    color: #8B8B8B;
+}
+
+.register__input {
+    height: 46px;
+    margin: 10px 0 20px;
+    padding: 0 15px;
+    background-color: #2F2F2F;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 16px;
+    color: #fff;
+}
+
+.register__input:focus {
+    background-color: #4285F4;
+}
+
+.register__submit-button {
+    width: 396px;
+    padding: 13px 0 15px;
+    margin: 69px 0 0;
+    border: none;
+    border-radius: 3px;
+    background-color: #4285F4;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    text-align: center;
+    color: #fff;
+}
+
+.register__paragraph {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16px 0 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    text-align: center;
+    color: #8B8B8B;
+}
+
+.register__paragraph-link {
+    margin: 0 0 0 6px;
+    color: #4285F4;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 767px) {
+    .register {
+        padding: 232px 0;
+    }
+}
+
+@media screen and (max-width: 639px) {
+    .register {
+        padding: 130px 0;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .register {
+        width: 90%;
+    }
+    
+    .register__container {
+        max-width: 100%;
+    }
+}
