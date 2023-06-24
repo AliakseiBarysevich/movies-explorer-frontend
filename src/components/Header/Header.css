@@ -117,18 +117,17 @@
     display: none;
 }
 
+.header__profile-button {
+    text-decoration: none;
+}
+
 @media screen and (max-width: 767px) {
     .header {
         max-width: 100%;
         padding: 0 30px;
-        /* margin: 0 auto; */
     }
 
     .header__navigation {
-        display: none;
-    }
-
-    .header__link-button_type_profile {
         display: none;
     }
 

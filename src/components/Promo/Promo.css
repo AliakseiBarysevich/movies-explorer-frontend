@@ -61,7 +61,6 @@
 
 @media screen and (max-width: 479px) {
     .promo__heading {
-        max-width: 100%;
         font-size: 31px;
         line-height: 39px;
     }
@@ -69,7 +68,11 @@
 
 @media screen and (max-width: 319px) {
     .promo {
-        padding: 183px 10px 40px;
+        padding: 183px 0 40px;
+    }
+
+    .promo__heading {
+        max-width: calc(100% - 10px * 2);
     }
 
     .promo__image {

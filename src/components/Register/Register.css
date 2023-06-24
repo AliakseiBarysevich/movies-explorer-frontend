@@ -114,3 +114,14 @@
         max-width: 100%;
     }
 }
+
+@media screen and (max-width: 319px) {
+    .register__heading {
+        text-align: center;
+    }
+
+    .register__logo {
+        display: flex;
+        justify-content: center;
+    }
+}

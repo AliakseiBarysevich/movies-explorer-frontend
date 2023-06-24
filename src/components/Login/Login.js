@@ -10,7 +10,7 @@ function Login() {
   return (
     <section className="register">
       <div className="register__container">
-        <Link to="/">
+        <Link className="register__logo" to="/">
           <img className="header__logo" src={logo} alt="Logo" />
         </Link>
         <h1 className="register__heading">Рады видеть!</h1>
@@ -46,7 +46,6 @@ function Login() {
             </li>
           </ul>
           <Button>Войти</Button>
-          {/* <button className="login__submit-button">Войти</button> */}
         </form>
         <p className="register__paragraph">
           Ещё не зарегистрированы?{" "}

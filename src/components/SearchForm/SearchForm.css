@@ -102,7 +102,11 @@
         padding: 0;
         display: flex;
         flex-direction: column;
-    }    
+    }
+
+    .search-form__form {
+        border-radius: 9px;
+    }
 
     .search-form__vertical-line {
         display: none;

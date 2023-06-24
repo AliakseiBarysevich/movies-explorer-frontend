@@ -9,7 +9,7 @@ function Register() {
   return (
     <section className="register">
       <div className="register__container">
-        <Link to="/">
+        <Link className="register__logo" to="/">
           <img className="header__logo" src={logo} alt="Logo" />
         </Link>
         <h1 className="register__heading">Добро пожаловать!</h1>
