@@ -1,0 +1,126 @@
+.techs {
+    max-width: calc(100% - 70px * 2);
+    margin: 0 auto;
+    background-color: #272727;
+    padding: 100px 70px;
+    color: #fff;
+}
+
+.techs__content-container {
+    margin: 90px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.techs__title {
+    margin: 0 0 26px;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    text-align: center;
+    letter-spacing: -0.04em;
+}
+
+.techs__subtitle {
+    margin: 0 0 100px;
+    width: 460px;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: -0.04em;
+}
+
+.techs__techs-container {
+    width: 690px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 90px);
+    gap: 10px 10px;
+    justify-content: center;
+}
+
+
+.techs__techs-item {
+    margin: 0;
+    width: 90px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #303030;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    letter-spacing: -0.04em;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 767px) {
+    .techs {
+        max-width: 100%;
+        padding: 90px 50px;
+    }
+
+    .techs__content-container {
+        margin: 80px 0 0;
+    }
+
+    .techs__title {
+        margin: 0 0 22px;
+    }
+
+    .techs__subtitle {
+        margin: 0 0 83px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .techs__techs-container {
+        max-width: 100%;
+    }
+
+    .techs__techs-item {
+        width: 84px;
+        height: 57px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
+
+@media screen and (max-width: 639px) {
+    .techs__subtitle {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 319px) {
+    .techs {
+        max-width: 100%;
+        padding: 70px 18px 60px;
+    }
+
+    .techs__content-container {
+        margin: 80px 0 0;
+    }
+
+    .techs__title {
+        margin: 0 0 24px;
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    .techs__subtitle {
+        width: 292px;
+        margin: 0 0 50px;
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .techs__techs-container {
+        max-width: 178px;
+    }
+
+    .techs__techs-item {
+        margin-bottom: 10px;
+    }
+}
