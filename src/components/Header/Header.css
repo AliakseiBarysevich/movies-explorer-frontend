@@ -118,6 +118,7 @@
 }
 
 .header__profile-button {
+    cursor: pointer;
     text-decoration: none;
 }
 

@@ -65,7 +65,6 @@ input:checked + .filter-checkbox__slider:before {
     transform: translateX(14px);
 }
   
-/* Rounded sliders */
 .filter-checkbox__slider.round {
     border-radius: 10px;
 }

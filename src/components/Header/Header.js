@@ -13,12 +13,6 @@ function Header({ isLoggedIn }) {
         setIsSidebarOpen(!isSidebarOpen);
     }
 
-    // const sidebarHandler = () => setIsSidebarOpen(!isSidebarOpen);
-
-    // const handleSignOut = () => {
-    //     onSignOut();
-    // };
-
     const headerIsLoggeInTrue = (
         <header className="header header_background-color_black">
             <Link to="/">

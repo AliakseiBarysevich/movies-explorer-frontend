@@ -1,12 +1,16 @@
 import React from "react";
-import './ErrorPopup.css';
+import './Popup.css';
 
-function ErrorPopup({ isOpen, onClose, errorText }) {
+function Popup({
+  isOpen,
+  onClose,
+  popupText
+}) {
   return (
     <div className={`popup ${isOpen ? "popup_opened" : ""}`}>
       <div className="popup__container">
         <h3 className="popup__heading">
-          {errorText}
+          {popupText}
         </h3>
         <button className="popup__close-button" onClick={onClose}></button>
       </div>
@@ -14,4 +18,4 @@ function ErrorPopup({ isOpen, onClose, errorText }) {
   );
 }
 
-export default ErrorPopup;
+export default Popup;
