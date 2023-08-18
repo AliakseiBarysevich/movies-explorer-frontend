@@ -132,6 +132,10 @@
         display: none;
     }
 
+    .header__profile-button_display_none {
+        display: none;
+    }
+
     .header__sidebar-button {
         display: flex;
         width: 44px;
@@ -143,10 +147,6 @@
         background-color: transparent;
         justify-content: center;
         align-items: center;
-    }
-
-    .header__profile-button {
-        display: none;
     }
 }
 
