@@ -1,3 +1,5 @@
+import { SERVER_URL } from "./constants";
+
 function checkResponse(res) {
   return res.ok ? res.json() : Promise.reject(res.status);
 }
@@ -18,5 +20,5 @@ class MoviesApi {
 }
 
 export const moviesApi = new MoviesApi({
-  baseUrl: 'https://api.nomoreparties.co'
+  baseUrl: SERVER_URL,
 });

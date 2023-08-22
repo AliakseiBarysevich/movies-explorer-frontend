@@ -25,8 +25,10 @@ function SavedMovies({
     <section className="saved-movies">
       <SearchForm 
           moviesInputValue={savedBfMoviesInputValue}
+          // moviesInputValue={''}
           setMoviesInputValue={setSavedBfMoviesInutValue}
           moviesIsShort={savedBfMoviesIsShort}
+          // moviesIsShort={false}
           setMoviesIsShort={setSavedBfMoviesIsShort}
           handleSearch={handleSearch}
       />

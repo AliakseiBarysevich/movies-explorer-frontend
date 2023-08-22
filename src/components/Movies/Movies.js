@@ -5,6 +5,7 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import More from "../More/More";
 import Preloader from '../Preloader/Preloader';
 import Popup from "../Popup/Popup";
+import { LARGE_PAGE_ADDITIONAL_CARDS_NUMBER, MEDIUM_AND_SMALL_PAGE_ADDITIONAL_CARDS_NUMBER, TABLET_DEVICE_WIDTH } from "../../utils/constants";
 
 function Movies({
   isLoadingBfMovies,
@@ -27,11 +28,11 @@ function Movies({
 }) {
 
   const handleMoreButtonClick = () => {
-    if (windowWidth > 768) {
-      setInitialCardsQuantity(initialCardsQuantity + 3);
+    if (windowWidth > TABLET_DEVICE_WIDTH) {
+      setInitialCardsQuantity(initialCardsQuantity + LARGE_PAGE_ADDITIONAL_CARDS_NUMBER);
       console.log(initialCardsQuantity);
     } else {
-      setInitialCardsQuantity(initialCardsQuantity + 2);
+      setInitialCardsQuantity(initialCardsQuantity + MEDIUM_AND_SMALL_PAGE_ADDITIONAL_CARDS_NUMBER);
     }
   };
 

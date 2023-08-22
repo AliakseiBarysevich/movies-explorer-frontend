@@ -1,5 +1,5 @@
 import './App.css';
-import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import Header from '../Header/Header';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
@@ -15,6 +15,7 @@ import CurrentUserContext from '../../context/CurrentUserContext';
 import { mainApi } from '../../utils/MainApi';
 import { moviesApi } from '../../utils/MoviesApi';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import { DEFAULT_ERROR_MESSAGE, LARGE_PAGE_INITIAL_CARDS_NUMBER, MEDIUM_PAGE_INITIAL_CARDS_NUMBER, MOBILE_DEVICE_WIDTH, SHORT_MOVIE_MAX_DURATION, SMALL_PAGE_INITIAL_CARDS_NUMBER, TABLET_DEVICE_WIDTH } from '../../utils/constants';
 
 function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -50,6 +51,14 @@ function App() {
     };
   }, []);
 
+  let location = useLocation();
+
+  useEffect(() => {
+    setSavedBfMoviesInutValue('');
+    setSavedBfMoviesIsShort(false);
+    setSavedBfMoviesSearchQuery('');
+  }, [location]);
+
   useEffect(() => {
     if (!bfMovies) {
       if ('bfMovies' in localStorage) {
@@ -65,7 +74,7 @@ function App() {
             localStorage.setItem('bfMovies', JSON.stringify(movies));
           })
           .catch((err) => {
-            console.log(`Ошибка: ${err}`);
+            console.log(DEFAULT_ERROR_MESSAGE);
             setSearchError(err);
             setIsPopupOpen(true);
           })
@@ -91,18 +100,18 @@ function App() {
           setSavedBfMovies(movies);
         })
         .catch((err) => {
-          console.log(`Ошибка: ${err}`);
+          console.log(DEFAULT_ERROR_MESSAGE);
         });
     }
   }, [isLoggedIn]);
 
   useEffect((() => {
-    if (windowWidth > 768) {
-      setInitialCardsQuantity(12);
-    } else if (windowWidth > 480) {
-      setInitialCardsQuantity(8);
+    if (windowWidth > TABLET_DEVICE_WIDTH) {
+      setInitialCardsQuantity(LARGE_PAGE_INITIAL_CARDS_NUMBER);
+    } else if (windowWidth > MOBILE_DEVICE_WIDTH) {
+      setInitialCardsQuantity(MEDIUM_PAGE_INITIAL_CARDS_NUMBER);
     } else {
-      setInitialCardsQuantity(5);
+      setInitialCardsQuantity(SMALL_PAGE_INITIAL_CARDS_NUMBER);
     }
   }), [windowWidth]);
 
@@ -135,7 +144,7 @@ function App() {
           owner: movie.owner
         })
         .then((savedMovie) => setSavedBfMovies([savedMovie, ...savedBfMovies]))
-        .catch((err) => console.log(`Ошибка: ${err}`));
+        .catch((err) => console.log(DEFAULT_ERROR_MESSAGE));
     } else {
       const savedMovieId = savedBfMovies.find(
         (item) => item.movieId === movie.id
@@ -147,7 +156,7 @@ function App() {
             state.filter((item) => item.movieId !== movie.id)
           );
         })
-        .catch((err) => console.log(`Ошибка: ${err}`));
+        .catch((err) => console.log(DEFAULT_ERROR_MESSAGE));
     }
   };
 
@@ -159,7 +168,7 @@ function App() {
           state.filter((item) => item.movieId !== movie.movieId)
         );
       })
-      .catch((err) => console.log(`Ошибка: ${err}`));
+      .catch((err) => console.log(DEFAULT_ERROR_MESSAGE));
   };
 
   const handleRegister = ({ name, email, password }) => {
@@ -169,7 +178,7 @@ function App() {
         handleAuthorize({ email, password });
       })
       .catch((err) => {
-        console.log(`Ошибка: ${err}`);
+        console.log(DEFAULT_ERROR_MESSAGE);
         setRegisterError(err);
       })
       .finally(() => {
@@ -187,7 +196,7 @@ function App() {
         navigate("/movies");
       })
       .catch((err) => {
-        console.log(`Ошибка: ${err}`);
+        console.log(DEFAULT_ERROR_MESSAGE);
         setIsSignInSuccessful(false);
         setIsPopupOpen(true);
         setIsLoggedIn(false);
@@ -207,9 +216,9 @@ function App() {
           setIsLoggedIn(true);
           setCurrentUser({ _id, name, email });
         })
-        .catch((err) => console.log(`Ошибка: ${err}`))
+        .catch((err) => console.log(DEFAULT_ERROR_MESSAGE))
         .finally(() => {
-          console.log("register and login are over, you're redirecting to /movies");
+          console.log("Token check is over");
         });
     } else {
       handleSignOut();
@@ -232,7 +241,7 @@ function App() {
         setIsProfileUpdateSuccessful(true);
         setIsPopupOpen(true);
       })
-      .catch((err) => console.log(`Ошибка: ${err}`))
+      .catch((err) => console.log(DEFAULT_ERROR_MESSAGE))
       .finally(() => {
         setIsFetching(false)
       });
@@ -264,7 +273,7 @@ function App() {
       return null;
     }
     return movies.filter((movie) =>
-      (isMovieShort ? movie.duration <= 40 : movie) &&
+      (isMovieShort ? movie.duration <= SHORT_MOVIE_MAX_DURATION : movie) &&
       movie.nameRU.toLowerCase().includes(searchQuery.toLowerCase()));
   }, []);
 
@@ -278,11 +287,11 @@ function App() {
           element={isLoggedIn ?
             <Navigate to="/movies" /> :
             <Register
-            handleRegister={handleRegister}
-            isLoggedIn={isLoggedIn}
-            isFetching={isFetching}
-            registerError={registerError}
-          />}
+              handleRegister={handleRegister}
+              isLoggedIn={isLoggedIn}
+              isFetching={isFetching}
+              registerError={registerError}
+            />}
         />
 
         <Route
@@ -291,25 +300,23 @@ function App() {
           element={isLoggedIn ?
             <Navigate to="/movies" /> :
             <Login
-            handleLogin={handleAuthorize}
-            isFetching={isFetching}
-            isSignInSuccessful={isSignInSuccessful}
-            isPopupOpen={isPopupOpen}
-            handleClosePopup={closePopup}
-          />}
+              handleLogin={handleAuthorize}
+              isFetching={isFetching}
+              isSignInSuccessful={isSignInSuccessful}
+              isPopupOpen={isPopupOpen}
+              handleClosePopup={closePopup}
+            />}
         />
 
         <Route
           exact
           path="/"
           element={
-            isLoggedIn ?
-              <Navigate to="/movies" /> :
-              <>
-                <Header isLoggedIn={isLoggedIn} />
-                <Main />
-                <Footer />
-              </>}
+            <>
+              <Header isLoggedIn={isLoggedIn} />
+              <Main />
+              <Footer />
+            </>}
         />
 
         <Route
@@ -356,8 +363,10 @@ function App() {
                 convertDuration={convertDuration}
                 setSavedBfMoviesSearchQuery={setSavedBfMoviesSearchQuery}
                 savedBfMoviesIsShort={savedBfMoviesIsShort}
+                // savedBfMoviesIsShort={false}
                 setSavedBfMoviesIsShort={setSavedBfMoviesIsShort}
                 savedBfMoviesInputValue={savedBfMoviesInputValue}
+                // savedBfMoviesInputValue={''}
                 setSavedBfMoviesInutValue={setSavedBfMoviesInutValue}
                 handleDeleteMovieClick={handleDeleteMovieClick}
                 windowWidth={windowWidth}

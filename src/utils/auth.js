@@ -1,4 +1,5 @@
-export const BASE_URL = "https://api.moviesexplorer.nomoredomains.monster";
+export const BASE_URL = "http://localhost:3001";
+// "https://api.moviesexplorer.nomoredomains.monster";
 
 export const register = (name, email, password) => {
   return fetch(`${BASE_URL}/signup`, {
