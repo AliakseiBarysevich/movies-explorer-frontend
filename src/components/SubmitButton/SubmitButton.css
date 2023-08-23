@@ -1,4 +1,4 @@
-.button {
+.submit-button {
     width: 100%;
     height: 45px;
     background-color: #4285F4;
@@ -13,17 +13,17 @@
     cursor: pointer;
 }
 
-.button_disabled {
+.submit-button_disabled {
     background-color: #F8F8F8;
     color: #C2C2C2;
 }
 
-.button:hover {
+.submit-button:hover {
     opacity: .8;
 }
 
 @media screen and (max-width: 319px) {
-    .button {
+    .submit-button {
         font-size: 12px;
         line-height: 15px;
     }

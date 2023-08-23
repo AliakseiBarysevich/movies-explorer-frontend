@@ -118,6 +118,7 @@
 }
 
 .header__profile-button {
+    cursor: pointer;
     text-decoration: none;
 }
 
@@ -128,6 +129,10 @@
     }
 
     .header__navigation {
+        display: none;
+    }
+
+    .header__profile-button_display_none {
         display: none;
     }
 
@@ -142,10 +147,6 @@
         background-color: transparent;
         justify-content: center;
         align-items: center;
-    }
-
-    .header__profile-button {
-        display: none;
     }
 }
 

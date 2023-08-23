@@ -13,12 +13,6 @@ function Header({ isLoggedIn }) {
         setIsSidebarOpen(!isSidebarOpen);
     }
 
-    // const sidebarHandler = () => setIsSidebarOpen(!isSidebarOpen);
-
-    // const handleSignOut = () => {
-    //     onSignOut();
-    // };
-
     const headerIsLoggeInTrue = (
         <header className="header header_background-color_black">
             <Link to="/">
@@ -32,7 +26,7 @@ function Header({ isLoggedIn }) {
                     Сохраненные фильмы
                 </NavLink>
             </nav>
-            <NavLink className="header__profile-button" to="/profile">
+            <NavLink className="header__profile-button header__profile-button_display_none" to="/profile">
                 <ProfileButton />
             </NavLink>
             <button className="header__sidebar-button" onClick={closeSidebarHandler} ></button>

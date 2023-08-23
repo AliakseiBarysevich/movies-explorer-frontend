@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
 import ProfileButton from "../ProfileButton/ProfileButton";
 import "./Sidebar.css";
+import "../Header/Header.css";
 
 function Sidebar({ isOpen, closeSidebarHandler }) {
     return (
@@ -30,7 +30,9 @@ function Sidebar({ isOpen, closeSidebarHandler }) {
                         Сохранённые фильмы
                     </NavLink>
                 </nav>
-                <ProfileButton />
+                <NavLink className="header__profile-button" to="/profile">
+                    <ProfileButton />
+                </NavLink>
                 <button className="sidebar__close-button" onClick={closeSidebarHandler} ></button>
             </div>
         </div>

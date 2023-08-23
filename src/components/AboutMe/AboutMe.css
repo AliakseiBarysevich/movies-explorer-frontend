@@ -61,7 +61,6 @@
 
 .about-me__image {
     width: 270px;
-    /* height: 327px; */
     grid-area: avatar;
     border-radius: 10px;
 }
@@ -88,7 +87,6 @@
 
     .about-me__image {
         width: 255px;
-        /* height: 307px; */
     }
 
     .about-me__name {

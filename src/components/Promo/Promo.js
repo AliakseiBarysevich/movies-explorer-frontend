@@ -2,9 +2,6 @@ import './Promo.css';
 import React from "react";
 
 function Promo() {
-    // const handleSignOut = () => {
-    //     onSignOut();
-    // };
 
     return (
         <section className="promo">
